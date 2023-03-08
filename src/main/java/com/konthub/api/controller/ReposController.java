@@ -2,6 +2,7 @@ package com.konthub.api.controller;
 
 import org.springframework.http.HttpStatus;
 
+import java.net.http.HttpRequest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ReposController {
     
     @GetMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Repo> getUserRepos(@PathVariable(value = "username", required = true) Long username){
+    public String getUserRepos(@PathVariable(value = "username", required = true) String username){
         return service.getAll(username);
     }
 }
